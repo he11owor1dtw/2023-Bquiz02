@@ -4,7 +4,6 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 	<title>健康促進網</title>
 	<link href="./css/css.css" rel="stylesheet" type="text/css">
 	<script src="./js/js.js"></script>
@@ -18,9 +17,11 @@
 	<iframe name="back" style="display:none;"></iframe>
 	<div id="all">
 		<div id="title">
-			00 月 00 號 Tuesday | 今日瀏覽: 1 | 累積瀏覽: 36 </div>
-		<div id="title2">
-
+			<?= date("m月d日"); ?> | 今日瀏覽: 1 | 累積瀏覽: 36
+			<a href="index.php" style="float:right">回首頁</a>
+		</div>
+		<div id="title2" title="健康促進網-回首頁">
+			<img src="./102202/02B01.jpg" alt="">
 		</div>
 		<div id="mm">
 			<div class="hal" id="lef">
@@ -31,9 +32,11 @@
 				<a class="blo" href="?do=que">問卷調查</a>
 			</div>
 			<div class="hal" id="main">
-				<div>
-
-					<span style="width:18%; display:inline-block;">
+				<div style="text-align: center">
+					<marquee style="width:80%;display:inline-block;">
+						「請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章」
+					</marquee>
+					<span style="width:19%;display:inline-block;">
 						<a href="?do=login">會員登入</a>
 					</span>
 					<div class="">
