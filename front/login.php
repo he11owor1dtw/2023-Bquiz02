@@ -1,12 +1,12 @@
-<fieldset style="margin: auto;text-align: center;">
+<fieldset style=" margin: auto;text-align: center;">
     <legend>會員登入</legend>
-    <table style="margin: auto;text-align: center;">
+    <table style=" margin: auto;text-align: center;">
         <tr>
-            <td class="clo">帳號</td>
+            <td class='clo'>帳號</td>
             <td><input type="text" name="acc" id="acc"></td>
         </tr>
         <tr>
-            <td class="clo">密碼</td>
+            <td class='clo'>密碼</td>
             <td><input type="password" name="pw" id="pw"></td>
         </tr>
         <tr>
@@ -26,22 +26,23 @@
             acc: $("#acc").val()
         }, (res) => {
             if (parseInt(res) == 0) {
-                alert('查無帳號')
+                alert("查無帳號")
             } else {
                 $.post('./api/chk_pw.php', {
-                    acc: $("#acc").val(),
-                    pw: $("#pw").val()
-                }, (res) => {
-                    if (parseInt(res) == 1) {
-                        if ($("#acc").val() == 'admin') {
-                            location.href = 'back.php'
+                        acc: $("#acc").val(),
+                        pw: $("#pw").val()
+                    },
+                    (res) => {
+                        if (parseInt(res) == 1) {
+                            if ($("#acc").val() == 'admin') {
+                                location.href = 'back.php'
+                            } else {
+                                location.href = 'index.php'
+                            }
                         } else {
-                            location.href = 'index.php'
+                            alert("密碼錯誤")
                         }
-                    } else {
-                        alert("密碼錯誤")
-                    }
-                })
+                    })
             }
         })
     }
