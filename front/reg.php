@@ -1,6 +1,6 @@
-<fieldset style="margin: auto;">
+<fieldset style="margin: auto;text-align: center;">
     <legend>註冊</legend>
-    <table>
+    <table style="margin: auto;text-align: center;">
         <p style="color: red;">*請設定您要註冊的帳號及密碼(最長12個字元)</p>
         <tr>
             <td class="clo">Step1:登入帳號</td>
@@ -19,7 +19,7 @@
             <td><input type="text" name="email" id="email"></td>
         </tr>
         <tr>
-            <td>
+            <td colspan="2" style="text-align: center">
                 <input type="submit" value="註冊">
                 <input type="reset" value="清除">
             </td>

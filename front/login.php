@@ -1,6 +1,6 @@
-<fieldset>
+<fieldset style="margin: auto;text-align: center;">
     <legend>會員登入</legend>
-    <table>
+    <table style="margin: auto;text-align: center;">
         <tr>
             <td class="clo">帳號</td>
             <td><input type="text" name="" id=""></td>
