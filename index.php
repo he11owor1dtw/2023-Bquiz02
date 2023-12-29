@@ -9,6 +9,15 @@
 	<script src="./js/js.js"></script>
 	<script src="./js/jquery-1.9.1.min.js"></script>
 </head>
+<style>
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 20px;
+		vertical-align: middle;
+	}
+</style>
 
 <body>
 	<div id="alerr" style="background:rgba(51,51,51,0.8); color:#FFF; min-height:100px; width:300px; position:fixed; display:none; z-index:9999; overflow:auto;">
@@ -32,11 +41,11 @@
 				<a class="blo" href="?do=que">問卷調查</a>
 			</div>
 			<div class="hal" id="main">
-				<div style="text-align: center">
+				<div class="container">
 					<marquee style="width:80%;display:inline-block;">
 						「請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章」
 					</marquee>
-					<span style="width:19%;display:inline-block;">
+					<span style="width:19%;display:inline-block;text-align:center">
 						<a href="?do=login">會員登入</a>
 					</span>
 					<div class="">
