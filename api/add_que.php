@@ -1,19 +1,33 @@
-<?php 
-include_once "db.php";
+<style>
+    .type-item{
+        display: block;
+        margin:3px 6px;
+    }
+    .types,.news-list{
+        display: inline-block;
+        vertical-align: top;
+    }
+    .news-list{
+        width:600px;
+    }
+</style>
+<div class="nav">目前位置:首頁 > 分類網誌 > <span class="type">健康新知</span></div>
 
-if (isset($_POST['subject'])) {
-  $Que->save(['text' => $_POST['subject'], 'subject_id' => 0, 'vote' => 0]);
-  $subject_id = $Que->find(['text' => $_POST['subject']])['id'];
-  $subject_id2 = $Que->max('id');
-}
+<fieldset class='types'>
+    <legend>分類網誌</legend>
+<a class='type-item'>健康新知</a>
+<a class='type-item'>菸害防治</a>
+<a class='type-item'>癌症防治</a>
+<a class='type-item'>慢性病防治</a>
+</fieldset>
+<fieldset class='news-list'>
+    <legend>文章列表</legend>
+    <div class="list-items"></div>
+    <div class="article"></div>
+</fieldset>
 
-echo $subject_id;
-echo $subject_id2;
-
-if (isset($_POST['option'])) {
-  foreach ($_POST['option'] as $option) {
-    $Que->save(['text' => $option, 'subject_id' => $subject_id, 'vote' => 0]);
-  }
-}
-
-to("../back.php?do=que");
+<script>
+    $(".type-item").on('click',function(){
+        $(".type").text($(this).text())
+    })
+</script>
