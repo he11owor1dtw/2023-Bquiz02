@@ -50,8 +50,13 @@ include_once "./api/db.php"
 					} else {
 					?>
 						歡迎,<?= $_SESSION['user']; ?>
-						<button>登出</button>
+						<button onclick="location.href='./api/logout.php'">登出</button>
+						<?php
+						if ($_SESSION['user'] == 'admin') {
+						?>
+							<button onclick="location.href='back.php'">管理</button>
 					<?php
+						}
 					}
 					?>
 				</span>
