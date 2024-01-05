@@ -10,14 +10,16 @@
       <?php
       $rows = $User->all();
       foreach ($rows as $row) {
+        if ($row['acc'] != 'admin') {
       ?>
-        <tr>
-          <td><?= $row['acc']; ?></td>
-          <!-- <td><?= $row['pw'] ?></td> -->
-          <td><?= str_repeat("*", mb_strlen($row['pw'])); ?></td>
-          <td><input type="checkbox" name="del[]" value="<?= $row['id']; ?>"></td>
-        </tr>
+          <tr>
+            <td><?= $row['acc']; ?></td>
+            <!-- <td><?= $row['pw'] ?></td> -->
+            <td><?= str_repeat("*", mb_strlen($row['pw'])); ?></td>
+            <td><input type="checkbox" name="del[]" value="<?= $row['id']; ?>"></td>
+          </tr>
       <?php
+        }
       }
       ?>
     </table>
