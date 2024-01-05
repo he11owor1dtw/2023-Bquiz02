@@ -48,4 +48,12 @@
       $(".list-items").html(list)
     })
   }
+
+  function getNews(id) {
+    $.get("./api/get_news.php", {
+      id
+    }, (news) => {
+      $(".article").text(news)
+    })
+  }
 </script>
