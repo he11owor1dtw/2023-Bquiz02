@@ -3,7 +3,7 @@
   <table style="width:95%;margin:auto">
     <tr>
       <th width="30%">標題</th>
-      <th width="50%">內容</th>
+      <th width="60%">內容</th>
       <th></th>
     </tr>
     <?php
@@ -34,9 +34,9 @@
           <?php
           if (isset($_SESSION['user'])) {
             if ($Log->count(['news' => $row['id'], 'acc' => $_SESSION['user']]) > 0) {
-              echo "<a href='Javascript:good({$row['id']})'>收回讚</a>";
+              echo "<a id='n{$row['id']}' href='Javascript:good({$row['id']})'>收回讚</a>";
             } else {
-              echo "<a href='Javascript:good({$row['id']})'>讚</a>";
+              echo "<a id='n{$row['id']}' href='Javascript:good({$row['id']})'>讚</a>";
             }
           }
           ?>
@@ -64,19 +64,10 @@
   </div>
 </fieldset>
 <script>
-  $(".title").hover(
-    function() {
-      $(".pop").hide()
-      let id = $(this).data("id")
-      $("#p" + id).show();
-    }
-  )
+  $(".title").on('click', (e) => {
+    let id = $(e.target).data('id');
+    $(`#s${id},#a${id}`).toggle();
+    //$("#s"+id+",#a"+id).toggle();
 
-  function good(news) {
-    $.post("./api/good.php", {
-      news
-    }, () => {
-      location.reload();
-    })
-  }
+  })
 </script>
