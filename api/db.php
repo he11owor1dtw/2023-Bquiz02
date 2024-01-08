@@ -151,7 +151,7 @@ function to($url)
 $Total = new DB('total');
 $User = new DB('user');
 $News= new DB('news');
-$Que = new DB('que');
+$Que = new DB('ques');
 $Log = new DB('log');
 
 if (!isset($_SESSION['visited'])) {
