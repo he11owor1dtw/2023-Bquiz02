@@ -1,33 +1,32 @@
-<style>
-    .type-item{
-        display: block;
-        margin:3px 6px;
-    }
-    .types,.news-list{
-        display: inline-block;
-        vertical-align: top;
-    }
-    .news-list{
-        width:600px;
-    }
-</style>
-<div class="nav">目前位置:首頁 > 分類網誌 > <span class="type">健康新知</span></div>
+<?php include_once "db.php";
 
-<fieldset class='types'>
-    <legend>分類網誌</legend>
-<a class='type-item'>健康新知</a>
-<a class='type-item'>菸害防治</a>
-<a class='type-item'>癌症防治</a>
-<a class='type-item'>慢性病防治</a>
-</fieldset>
-<fieldset class='news-list'>
-    <legend>文章列表</legend>
-    <div class="list-items"></div>
-    <div class="article"></div>
-</fieldset>
+//判斷主題是否存在
+if(isset($_POST['subject'])){
+    
+    //新增主題資料
+    $Que->save(['text'=>$_POST['subject'],
+                'subject_id'=>0,
+                'vote'=>0]);
 
-<script>
-    $(".type-item").on('click',function(){
-        $(".type").text($(this).text())
-    })
-</script>
+    //根據剛才新增的主題資料去找到主題的資料id                
+    $subject_id=$Que->find(['text'=>$_POST['subject']])['id'];
+    
+    //或是使用max()找到最大的id
+    //$subject_id=$Que->max('id');
+}
+
+//判斷選項是否存在
+if(isset($_POST['option'])){
+
+    //使用迴圈來巡訪 $_POST['option'] 陣列
+    foreach($_POST['option'] as $option){
+
+        //新增選項資料
+        $Que->save(['text'=>$option,
+                    'subject_id'=>$subject_id,
+                    'vote'=>0]);
+    }
+}
+
+//導回後台管理頁面
+to("../back.php?do=que");
