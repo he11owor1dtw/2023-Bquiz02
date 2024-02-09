@@ -30,7 +30,7 @@ class DB
       } elseif (is_numeric($array)) {
         $sql .= "$array";
       }
-      $sql.=$other;
+      $sql .= $other;
       return $sql;
     }
   }
@@ -41,12 +41,11 @@ class DB
   {
     return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
   }
-  function all($array='',$other='')
+  function all($array = '', $other = '')
   {
-$sql="select * from `$this->table`";
-$sql=$this->sql_all($sql, $array, $other);
+    $sql = "select * from `$this->table`";
+    $sql = $this->sql_all($sql, $array, $other);
     return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-
   }
   function
   count($array = '', $other = '')
@@ -54,23 +53,26 @@ $sql=$this->sql_all($sql, $array, $other);
     $sql = "select count(*) from `$this->table`";
     $sql = $this->sql_all($sql, $array, $other);
     return $this->pdo->query($sql)->fetchColumn();
-
   }
   function find($id)
   {
     $sql = "select count(*) from `$this->table`";
-    if(is_array($id){
-$tmp=$this->a2s($id);
-$sql="where".("&&",$tmp);
-    }elseif(is_numeric($id)){
+    if (is_array($id)) {
+      $tmp = $this->a2s($id);
+      $sql = "where" . join("&&", $tmp);
+    } elseif (is_numeric($id)) {
 
-$sql.="where `id` ='$id'";
-    })
+      $sql .= "where `id` ='$id'";
+    }
     return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-
   }
   function save()
   {
+    if(isset($array['id'])){
+      $sql="update `$this->table` set";
+
+      
+    }
   }
   function del()
   {
@@ -78,31 +80,32 @@ $sql.="where `id` ='$id'";
 
 
 
-  function math($math,$col,$array='',$other='')
+  function math($math, $col, $array = '', $other = '')
   {
-    $sql="select $math($col) from `$this->table`";
-    $sql=$this->sql_all($sql,$array,$other);
+    $sql = "select $math($col) from `$this->table`";
+    $sql = $this->sql_all($sql, $array, $other);
     return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
   }
-  function sum($col='',$array='',$other='')
+  function sum($col = '', $array = '', $other = '')
   {
-    return $this->math('sum',$col,$array,$other);
+    return $this->math('sum', $col, $array, $other);
   }
   function
   max($col = '', $array = '', $other = '')
   {
-      return $this->math('max', $col, $array, $other);
+    return $this->math('max', $col, $array, $other);
   }
   function
-    min($col = '', $array = '', $other = '')
+  min($col = '', $array = '', $other = '')
   { {
-        return $this->math('min', $col, $array, $other);
+      return $this->math('min', $col, $array, $other);
+    }
   }
-}
 
-function dd()
-{
-}
-function to()
-{
+  function dd()
+  {
+  }
+  function to()
+  {
+  }
 }
