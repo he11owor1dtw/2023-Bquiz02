@@ -15,7 +15,7 @@
       <tr>
         <td><?= $key + 1; ?></td>
         <td><?= $que['text']; ?></td>
-        <td><?= $que['vote']; ?></td>
+        <td><?= $que['count']; ?></td>
         <td>
           <a href='?do=result&id=<?= $que['id']; ?>'>結果</a>
         </td>
