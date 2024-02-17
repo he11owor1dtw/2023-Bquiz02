@@ -1,5 +1,5 @@
 <style>
-  .tag {
+  .tab {
     width: 100px;
     padding: 5px 10px;
     border: 1px solid black;
@@ -9,7 +9,7 @@
     background-color: lightgoldenrodyellow
   }
 
-  .tags {
+  .tabs {
     display: flex;
     margin-left: 1px;
   }
@@ -27,11 +27,11 @@
   }
 </style>
 
-<div class="tags">
-  <div id="sec01" class='tag active'>健康新知</div>
-  <div id="sec02" class='tag'>菸害防治</div>
-  <div id="sec03" class='tag'>癌症防治</div>
-  <div id="sec04" class='tag'>慢性病防治</div>
+<div class="tabs">
+  <div id="sec01" class='tab active'>健康新知</div>
+  <div id="sec02" class='tab'>菸害防治</div>
+  <div id="sec03" class='tab'>癌症防治</div>
+  <div id="sec04" class='tab'>慢性病防治</div>
 </div>
 <article>
   <section id="section01" style="display:block">
@@ -132,8 +132,8 @@
 </article>
 
 <script>
-  $(".tag").on('click', function() {
-    $(".tag").removeClass('active')
+  $(".tab").on('click', function() {
+    $(".tab").removeClass('active')
     $(this).addClass('active')
     let id = $(this).attr('id').replace("sec", 'section');
     console.log(id)
